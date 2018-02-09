@@ -8,6 +8,9 @@
     ########################################
     <include file="$(find gazebo_test_tools)/launch/gazebo_fake_object_recognition.launch"/>
 
+    ###################################
+
+
 	#####################################
 	# Load MoveIt! collision object generator
     #####################################
@@ -22,7 +25,10 @@
     <include file="$(find jaco_on_table)/launch/jaco_on_table_gazebo_controlled.launch">
         <arg name="load_world_plugins" value="true"/>
         <arg name="load_grasp_fix" value="$(arg load_grasp_fix)"/>
+        <arg name="load_joint_state_publisher" default="false"/>
     </include>
+
+
     
     #################################
     # Launch simple grasp and grasp
@@ -30,4 +36,5 @@
     #################################
     <include file="$(find grasp_execution_jaco_tutorial)/launch/simple_grasp_control_action_server.launch"/>
     <include file="$(find grasp_execution_jaco_tutorial)/launch/simple_grasp_action_server.launch"/>
+
 </launch>
